@@ -1,0 +1,44 @@
+<html lang="en-us">
+
+	<head>
+		
+		<title>CIS289 Final Project</title>
+		<!--
+			Author: Tom Sorteberg
+			Project: CIS289 Final Project
+		-->
+
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'finalapp/style.css' %}">
+		
+	</head>
+
+	<body>
+
+		<div class="flex-container">
+
+			<div class="box">
+
+				<h2>{{ question.question_text }}</h2>
+
+				{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+				<form action="{% url 'finalapp:vote' question.id %}" method="post">
+					{% csrf_token %}
+					{% for choice in question.choice_set.all %}
+						<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+						<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+					{% endfor %}
+					<input type="submit" value="Vote">
+				</form>
+
+				<a href="../">Home</a>
+
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

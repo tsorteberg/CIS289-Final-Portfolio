@@ -1,0 +1,26 @@
+li a {
+    color: green;
+}
+
+html {
+    background-color: mintcream;
+}
+
+main {
+    margin: auto;
+}
+
+.flex-container {
+    display:flex;
+    flex-direction: column;
+    margin: auto auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    align-items: center
+}
+
+.box {
+    background-color: snow;
+    border:2px double black;
+    border-radius: 15px;
+    padding: 1em;
+}

@@ -1,0 +1,53 @@
+<html lang="en-us">
+	
+	<head>
+		
+		<title>CIS289 Final Project</title>
+		<!--
+			Author: Tom Sorteberg
+			Project: CIS289 Final Project
+		-->
+		
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'finalapp/style.css' %}">
+
+	</head>
+
+	<body>
+
+		<div class="flex-container">
+
+			<div class="box">
+
+				<h1>CIS289 Final Project</h1>
+
+				<h3>Tom Sorteberg</h3><br>
+
+				<h2>Questions:</h2>
+
+					{% if latest_question_list %}
+						<ul>
+						{% for question in latest_question_list %}
+							<li><a href="{% url 'finalapp:detail' question.id %}">{{ question.question_text }}</a></li>
+						{% endfor %}
+						</ul>
+					{% else %}
+						<p>No polls are available.</p>
+					{% endif %}
+
+				<h2>Plotting:</h2>
+
+					<a href="bar_chart">Bar Chart</a><br />
+					<a href="pie_chart">Pie Chart</a>
+
+				<h2>Administration:</h2>
+
+				<a href="../admin">Admin</a>
+
+			</div>
+		</div>
+
+	</body>
+
+</html>

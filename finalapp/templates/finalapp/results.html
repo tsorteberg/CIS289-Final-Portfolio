@@ -1,0 +1,40 @@
+<html lang="en-us">
+
+	<head>
+		
+		<title>CIS289 Final Project</title>
+		<!--
+			Author: Tom Sorteberg
+			Project: CIS289 Final Project
+		-->
+
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'finalapp/style.css' %}">
+		
+	</head>
+
+	<body>
+
+		<div class="flex-container">
+
+			<div class="box">
+
+				<h1>{{ question.question_text }}</h1>
+
+				<ul>
+				{% for choice in question.choice_set.all %}
+					<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+				{% endfor %}
+				</ul>
+
+				<a href="{% url 'finalapp:detail' question.id %}">Vote again?</a><br />
+				<a href="../../">Home</a>
+
+			</div>
+
+		</div>
+
+	</body>
+	
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+
+	<head>
+		
+		<title>CIS289 Final Project</title>
+		<!--
+			Author: Tom Sorteberg
+			Project: CIS289 Final Project
+		-->
+		
+		<meta charset="UTF-8">
+		
+		<script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.3.min.js"></script>
+		
+		{% load static %}
+
+		<link rel="stylesheet" type="text/css" href="{% static 'finalapp/style.css' %}">
+    
+	</head>
+	
+	<body>
+	
+		<div class="flex-container">
+
+			<div class="box">
+
+				{{ the_divs|safe }}
+
+				{{ the_scripts|safe }}
+
+				<a href="../">Home</a>
+
+			</div>
+
+		</div>
+	
+	</body>
+	
+</html>
